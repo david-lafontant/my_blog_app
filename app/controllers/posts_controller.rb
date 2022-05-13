@@ -4,6 +4,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    render 'post_detail'
+    render 'post_details'
   end
 end
