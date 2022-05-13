@@ -41,7 +41,12 @@ To get a local copy up and running follow these simple example steps.
 - Open the url `http://localhost:3000` on a browser.
 - Run `rails routes` to list the routes
 
-
+### tests
+Run the tests
+run `bundle install` to install all the gems
+To run all the tests, please type in the terminal: `rspec`
+To run tests for the post controller: `rspec spec\posts_controller_spec.rb`
+To run the tests for user controller: `rspec spec\users_controller_spec.rb`
 ## Authors
 
 👤 **David Lafontant**

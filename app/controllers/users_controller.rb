@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    render 'user_detail'
+    render 'user_details'
   end
 end
