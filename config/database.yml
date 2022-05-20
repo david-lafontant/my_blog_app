@@ -4,9 +4,9 @@ development:
   database: my_blog_app_development
   encoding: unicode
   host: localhost
-  password: admin
+  password: admin # please replace 'admin' by your own password
   pool: 5
-  username: postgres
+  username: postgres # please replace 'postgres' by your own username
 production: 
   url: postgres://postgres:admin@localhost/my_blog_app_production
 test: 
@@ -14,5 +14,5 @@ test:
   database: my_blog_app_test
   url: postgres://postgres:admin@localhost/my_blog_app_test
   encoding: unicode
-  password: admin
+  password: admin # please replace 'admin' by your own password
   pool: 5
