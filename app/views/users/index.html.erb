@@ -1,5 +1,14 @@
-<ul class="list-group mt-5">
-  <% @users.each do |user| %>
-    <%= render 'users/user', user: user %>
-  <% end %>
-</ul>
+<div class="mt-5">
+
+  <div class="bg-light p-3">
+    <h2>Current User: <%= @current_user.name %></h2>
+    <%= link_to 'Create Post', "/users/#{@current_user.id}/posts/new", class: 'btn btn-primary' %>
+  </div>
+
+  <ul class="list-group mt-5">
+    <% @users.each do |user| %>
+      <%= render 'user', user: user %>
+    <% end %>
+  </ul>
+
+</div>
