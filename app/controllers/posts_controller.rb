@@ -1,24 +1,27 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    @user = User.includes(:posts, :comments).find(params[:user_id])
   end
 
-  def create
-    @post = current_user.posts.new(post_params)
-    if @post.save
-      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
-    else
-      render :new
-    end
+  def show
+    @post = User.find(params[:user_id]).posts.find(params[:id])
   end
 
   def new
     @post = Post.new
   end
 
-  def show
-    @current_user = current_user
-    @post = Post.find(params[:id])
+  def create
+    @post = current_user.posts.new(post_params)
+    @post.comments_counter = 0
+    @post.likesCounter = 0
+    if @post.save
+      flash[:success] = 'Post added successfully'
+      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
+    else
+      render :new
+    end
   end
 
   private
