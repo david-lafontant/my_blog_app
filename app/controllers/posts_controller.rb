@@ -3,10 +3,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def show
-    @post = User.find(params[:user_id]).posts.find(params[:id])
-  end
-
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -20,6 +16,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @current_user = current_user
+    @post = Post.find(params[:id])
+  end
 
   private
 
