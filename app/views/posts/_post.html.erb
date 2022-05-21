@@ -13,7 +13,7 @@
             <%= post.commentsCounter  ? post.commentsCounter : 0 %>
           </span>
         </button>
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" disable>
           Likes:
           <span class="badge bg-secondary">
             <%= post.likes_counter ? post.likes_counter  : 0 %>
@@ -22,7 +22,7 @@
       </div>
 
       <h4> Comments </h4>
-
+  
       <ul class="list-group">
         <% if post.comments.length > 0 %>
           <% post.comments.each do |comment| %>
@@ -32,7 +32,7 @@
           <li class="list-group-item">No comments</li>
         <% end %>
       </ul>
-
+      
     </div>
   </a>
 </li>
