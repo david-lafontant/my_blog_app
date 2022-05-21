@@ -6,8 +6,8 @@ RSpec.describe Like, type: :model do
       user = User.new(name: 'Esther Alice', post_counter: 0)
       user.save
 
-      post = Post.new(title: 'Alice in wonderlands', text: 'Beware the Jabberwock, my son!', commentsCounter: 1, likesCounter: 0,
-                      author_id: user.id)
+      post = Post.new(title: 'Alice in wonderlands', text: 'Beware the Jabberwock, my son!', commentsCounter: 1,
+                      likesCounter: 0, author_id: user.id)
       post.save
 
       like = Like.new(author_id: user.id, post_id: post.id)

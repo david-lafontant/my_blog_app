@@ -39,13 +39,9 @@ RSpec.describe User, type: :model do
           subject.posts.create(title: 'Alice in wonderlands', text: 'Beware the Jabberwock, my son!')
         end
         # expect(subject.recent_posts.count).to eq(3)
-    expect(subject.recent_posts).to eq(Post.order(created_at: :desc).limit(3))
+        expect(subject.recent_posts).to eq(Post.order(created_at: :desc).limit(3))
       end
     end
-
-
-
-
 
     # describe '#recent_posts' do
     #   before(:each) do
@@ -53,25 +49,10 @@ RSpec.describe User, type: :model do
     #       Post.new(title: "Post #{i}", text: "text#{i}", comments_counter: 0, likes_counter: 0, author_id: user.id)
     #     end
     #   end
-  
+
     #   it 'returns the last 3 posts' do
     #     expect(user.recent_posts).to eq(Post.order(created_at: :desc).limit(3))
     #   end
     # end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   end
 end
