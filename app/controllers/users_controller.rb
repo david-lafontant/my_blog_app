@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    render 'user_list'
+    @users = User.all
   end
 
   def show
-    render 'user_details'
+    @user = User.find(params[:id])
   end
 end
