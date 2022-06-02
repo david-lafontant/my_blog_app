@@ -1,9 +1,9 @@
-<%= form_with model: post do |form| %>
+<%= form_with model: Post.new do |form| %>
 
-  <% if post.errors.any? %>
-    <% post.errors.full_messages.each do |message| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |message| %>
       <div class="alert alert-danger" role="alert">
-        <%= message %> 
+        <%= message %> S
       </div>
     <% end %>       
   <% end %>
