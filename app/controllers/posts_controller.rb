@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   def index
+    @current_user = current_user
     @user = User.find(params[:user_id])
-    @user = User.includes(:posts, :comments).find(params[:user_id])
+    @posts_and_comments = @user.posts_desc_order.includes(:comments)
   end
 
   def show
-    @post = User.find(params[:user_id]).posts.find(params[:id])
+    @current_user = current_user
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -14,12 +16,15 @@ class PostsController < ApplicationController
 
   def create
     @current_user = current_user
-    @post = current_user.posts.new(post_params)
+    @post = @current_user.posts.new(post_params)
+    @post.commentsCounter = 0
+    @post.likesCounter = 0
     if @post.save
-      flash[:success] = 'Post added successfully'
-      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
+      flash[:success] = 'Post saved successfully'
+      redirect_to user_posts_url(@current_user.id)
     else
-      render :new
+      flash.now[:error] = @post.errors.full_messages.to_sentence
+      render :new, locals: { user: @current_user }, status: 422
     end
   end
 

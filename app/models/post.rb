@@ -1,24 +1,29 @@
 class Post < ApplicationRecord
-  has_many :comments
-  has_many :likes
-  belongs_to :author, class_name: 'User'
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id', inverse_of: :posts
+  has_many :comments, class_name: 'Comment', foreign_key: 'post_id', inverse_of: :post, dependent: :destroy
+  has_many :likes, class_name: 'Like', foreign_key: 'post_id', inverse_of: :post, dependent: :destroy
 
-  validates :commentsCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :title, length: { maximum: 250 }, presence: true
-  validates :likesCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :text, presence: true
+  validates :commentsCounter, presence: true, numericality: { only_integer: true },
+                              comparison: { greater_than_or_equal_to: 0 }
+  validates :likesCounter, presence: true, numericality: { only_integer: true },
+                           comparison: { greater_than_or_equal_to: 0 }
 
-  after_create :increment_post_counter
-  after_destroy :decrement_post_counter
+  after_create :increment_posts_counter
+  after_destroy :decrement_posts_counter
 
-  def increment_post_counter
-    user.increment!(:post_counter)
+  def most_recent_comments(items = 5)
+    comments.order(created_at: :desc).take(items)
   end
 
-  def decrement_post_counter
-    user.decrement!(:post_counter)
+  private
+
+  def increment_posts_counter
+    user.increment!(:postsCounter)
   end
 
-  def recent_comments
-    comments.last(5)
+  def decrement_posts_counter
+    user.decrement!(:postsCounter)
   end
 end
