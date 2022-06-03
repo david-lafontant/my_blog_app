@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe 'Posts Validation' do
     before(:all) do
-      @user = User.new(name: 'Esther Alice', post_counter: 0)
+      @user = User.new(name: 'Esther Alice', postsCounter: 0)
       @user.save
     end
 
