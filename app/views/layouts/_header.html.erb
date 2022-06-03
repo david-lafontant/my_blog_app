@@ -1,10 +1,25 @@
 <header>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
-    <%= link_to 'My Blog', users_path, class: 'brand' %>
-    <nav>
-      <%= link_to 'Home', users_path %>
-      <%= link_to 'Profile', user_path(user.id) %>
-      <%= link_to 'New Post', new_post_path, class: 'btn' %>
-    </nav>
+    <%= link_to 'My Blog', users_path, :class => 'navbar-brand"' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <%= link_to 'Home', users_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Profile', user_path(user.id), :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'New Post', new_post_path, :class => 'nav-link' %>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
+  
 </header>

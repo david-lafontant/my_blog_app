@@ -1,4 +1,4 @@
-<div class="alert__box">
+<div class="alert alert-warning">
   <% flash.each do |message_type, message| %>
     <%= tag.div(message, class: "alert alert-#{message_type}") %>
   <% end %>
