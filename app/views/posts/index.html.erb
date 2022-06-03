@@ -1,23 +1,14 @@
-<div class="my-3 d-flex justify-content-around align-items-center flex-wrap gap-2">
-
-  <a href="/users/<%= @user.id %>">
-    <%= image_tag @user.photo, height: 100, width: 100 %>
-  </a>
-
-
-  <h2><%= @user.name %></h2>
-
-  <button type="button" class="btn btn-primary align-self-end">
-    Number of posts:
-    <span class="badge bg-secondary">
-      <%= @user.post_counter ? @user.post_counter : 0 %>
-    </span>
-  </button>
-
-</div>
-
-<ul class="list-group mt-5">
-  <% @user.posts.each do |post| %>
-    <%= render 'posts/post', post: post %>
+<%= render 'users/user_card', user: @user %>
+<%= render 'layouts/alert', flash: flash %>
+<% @posts_and_comments.each do |post| %>
+  <% if post.commentsCounter > 0 %>
+    <div class="group__box">
   <% end %>
-</ul>
+  <%= render 'post_card', post: post, detailed: false %>
+  <% if post.commentsCounter > 0 %>
+    <div class="card__box">
+      <%= render partial: 'comments/comment_card', collection: post.comments.first(5), as: :comment %>
+    </div>
+    </div>
+  <% end %>
+<% end %>

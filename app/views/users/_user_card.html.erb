@@ -1,0 +1,8 @@
+<div class="card__box card__box-user">
+  <%= content_tag(:div, tag.img(src: user.photo, alt: "#{user.name}'s photo", width: '150px'), class: 'card__image') %>
+  <div class="card__info">
+    <%= tag.h1(user.name, class: 'card__title') %>
+    <p class="card__counters">Number of posts: <%= tag.span(user.postsCounter) %></p>
+  </div>
+  <%= link_to '', user_path(user.id), class: 'card__hidden-link' %>
+</div>

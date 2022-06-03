@@ -1,19 +1,9 @@
-<div class="text-light mt-5">
-  <h2 class="mb-4">Create New Post</h2>
-<%= form_with model: @post do |form| %>
-
- <div class="mb-3">
-    <% form.label :title %>
-    <%= form.text_field :title, class:"form-control", placeholder:" Title of the post" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.text_field :text, class:"form-control", placeholder:"Content of the post" %>
-  </div>
-
-  <div>
-    <%= form.submit class:'btn btn-primary' %>
-  </div>
-
+<div class="form__container">
+<%= tag.h1('New Post', class: 'form__title') %>
+<%= render 'layouts/alert', flash: flash %>
+<%= form_with model: Post.new do |f| %>
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <%= f.text_area :text, rows: 20, placeholder: 'Enter the content' %>
+  <%= f.submit 'Save' %>
 <% end %>
 </div>
