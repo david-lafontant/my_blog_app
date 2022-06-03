@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Install
 
-- Run the commant `git clone https://github.com/gabyse1/blog-app.git` to clone this repository to your local computer. Choose the location you prefer.
+- Run the commant `https://github.com/david-lafontant/my_blog_app.git` to clone this repository to your local computer. Choose the location you prefer.
 - Run the command `bundle install` to install all project's dependencies.
 
 ### Usage
