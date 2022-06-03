@@ -1,12 +1,19 @@
 class User < ApplicationRecord
-  has_many :posts, foreign_key: 'author_id', dependent: :destroy
-  has_many :likes, foreign_key: 'author_id', dependent: :destroy
-  has_many :comments, foreign_key: 'author_id', dependent: :destroy
+  has_many :posts, class_name: 'Post', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
+  has_many :comments, class_name: 'Comment', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
+  has_many :likes, class_name: 'Like', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
 
-  validates :post_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :name, presence: true
+  validates :photo, presence: true
+  validates :bio, presence: true
+  validates :postsCounter, presence: true, numericality: { only_integer: true },
+                           comparison: { greater_than_or_equal_to: 0 }
 
-  def recent_posts
-    posts.order(created_at: :desc).limit(3)
+  def most_recent_posts(items = 3)
+    posts.order(created_at: :desc).take(items)
+  end
+
+  def posts_desc_order
+    posts.order(created_at: :desc)
   end
 end
