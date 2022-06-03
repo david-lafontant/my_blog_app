@@ -9,13 +9,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @current_user = current_user
   end
 
   def create
+    @current_user = current_user
     @post = current_user.posts.new(post_params)
-    @post.comments_counter = 0
-    @post.likesCounter = 0
     if @post.save
       flash[:success] = 'Post added successfully'
       redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
