@@ -5,12 +5,13 @@ class Like < ApplicationRecord
   after_create :increment_likes_counter
   after_destroy :decrement_likes_counter
 
-  private def increment_likes_counter
+  private
+
+  def increment_likes_counter
     post.increment!(:likesCounter)
   end
 
-  private def decrement_likes_counter
+  def decrement_likes_counter
     post.decrement!(:likesCounter)
   end
 end
-
