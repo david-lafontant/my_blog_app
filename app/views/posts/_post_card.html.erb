@@ -15,5 +15,10 @@
       <% end %>
       <%= tag.span(post.likesCounter) %>
     </div>
+    <% if can? :destroy, post %>
+      <div class="card">
+      <%= button_to 'Delete', post_path(post.id), params: { post: { post_id: post.id} }, method: :delete %>
+      </div>
+    <% end %>
   </div>
 </div>

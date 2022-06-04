@@ -1,4 +1,11 @@
 <div class="card__box-comments">
-  <%= tag.h4("#{comment.user.name}:", class: 'card__title') %>
-  <%= tag.p(comment.text, class: 'card__text') %>
+  <div class="comment__desc">
+    <%= tag.h4("#{comment.user.name}:", class: 'card__title') %>
+    <%= tag.p(comment.text, class: 'card__text') %>
+  </div>
+  <% if can? :destroy, comment %>
+  <div class="owner__admin">
+    <%= button_to 'Delete', post_comment_path(comment.post.id, comment.id), params: { post: { post_id: comment.post.id, comment_id: comment.id }}, method: :delete %>
+  </div>
+  <% end %>
 </div>
