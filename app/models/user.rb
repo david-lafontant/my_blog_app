@@ -27,11 +27,9 @@ class User < ApplicationRecord
   def default_values
     return unless new_record?
 
-
     self.photo ||= 'user_photo.png'
     self.postsCounter ||= 0
     self.role ||= 'default'
     self.bio ||= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-
   end
 end
