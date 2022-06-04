@@ -28,7 +28,7 @@ class User < ApplicationRecord
     return unless new_record?
 
 
-    self.photo ||= 'https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255'
+    self.photo ||= 'user_photo.png'
     self.postsCounter ||= 0
     self.role ||= 'default'
     self.bio ||= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
