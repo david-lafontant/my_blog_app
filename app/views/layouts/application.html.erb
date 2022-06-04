@@ -12,11 +12,11 @@
 
   <body>
   <%= render 'layouts/header', user: @current_user %>
-  <section class="main_section">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div class="container">
     <%= yield %>
     </div>
-  </section>
   <%= render partial: 'layouts/footer' %>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
