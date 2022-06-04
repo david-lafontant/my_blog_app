@@ -5,6 +5,14 @@ class CommentsController < ApplicationController
     render :new, locals: { user: @current_user, post: @post }
   end
 
+
+  def destroy
+    @comment = Comment.find(params[:post][:comment_id])
+    comment_user_id = @comment.user.id
+    @comment.destroy
+    redirect_to user_url(comment_user_id)
+  end
+  
   def create
     @current_user = current_user
     @comment = current_user.comments.new(comment_params)
@@ -18,6 +26,8 @@ class CommentsController < ApplicationController
       render :new, locals: { user: @current_user, post: @post }, status: 422
     end
   end
+
+
 
   private
 
