@@ -10,12 +10,13 @@ first_user = User.create(
   name: 'Tom',
   photo: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  postsCounter: 0)
+  postsCounter: 0, email: 'tomtom@gmail.com', encrypted_password: 'A2b3c7V4$')
+
 second_user = User.create(
   name: 'Lilly',
   photo: 'https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  postsCounter: 0)
+  postsCounter: 0, email: 'elililly@gmail.com', encrypted_password: 'B2z3ck8C#')
 
 # POSTS
 first_post = Post.create(user_id: first_user, title: 'Hello first post',
