@@ -27,7 +27,11 @@ class User < ApplicationRecord
   def default_values
     return unless new_record?
 
+
     self.photo ||= 'https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255'
     self.postsCounter ||= 0
+    self.role ||= 'default'
+    self.bio ||= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+
   end
 end
