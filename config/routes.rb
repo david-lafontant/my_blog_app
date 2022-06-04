@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     resources :posts, only: %i[index show]
   end
 
-  resources :posts, only: %i[new create] do
-    resources :comments, only: %i[new create]
+  resources :posts, only: %i[new create destroy] do
+    resources :comments, only: %i[new create destroy]
     resources :likes, only: %i[create destroy]
   end
 

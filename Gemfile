@@ -77,7 +77,10 @@ group :test do
 end
 
 # Gem rubocop
+gem 'cancancan', '~> 1.9'
 gem 'devise'
 gem 'ffi'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'sassc-rails'
+gem 'sass-rails'
 gem 'tzinfo'
