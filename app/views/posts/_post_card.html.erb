@@ -1,7 +1,7 @@
-<div class="container p-5 my-5 border">
+<div class="card__box">
   <%= link_to tag.h2(post.title, class: 'card__title'), user_post_path(post.user.id, post.id), class: 'link' %>
   <%= content_tag(:div, post.text, class: ['card__text', ('truncated-text' unless detailed)]) %>
-  <div class="card <%= 'card__counters-detailed' if detailed %>">
+  <div class="card__counters <%= 'card__counters-detailed' if detailed %>">
     <div class="counter__comments">
       <%= button_to 'Comments: ', new_post_comment_path(post.id), method: :get %>
       <%= tag.span(post.commentsCounter) %>
@@ -16,9 +16,9 @@
       <%= tag.span(post.likesCounter) %>
     </div>
     <% if can? :destroy, post %>
-      <div class="card">
+    <div class="owner__admin">
       <%= button_to 'Delete', post_path(post.id), params: { post: { post_id: post.id} }, method: :delete %>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>

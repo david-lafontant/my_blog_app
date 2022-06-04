@@ -1,11 +1,10 @@
-<div class="container mt-5 d-flex border">
- <div class= 'card border'>
-  <%= content_tag(:div, tag.img(src: user.photo, alt: "#{user.name}'s photo", width: '150px'), class: 'card') %>
- <div>
-  
-  <div class="card">
-    <%= tag.h3(user.name) %>
-    <p>Number of posts: <%= tag.span(user.postsCounter) %></p>
+<div class="d-flex p-3 bg-secondary text-white border">
+  <div class="card-body border">
+    <%= content_tag(:div, tag.img(src: user.photo, alt: "#{user.name}'s photo", width: '150px'), class: 'card') %>
   </div>
-  <%= link_to '', user_path(user.id), class: 'card__hidden-link' %>
+  <div class="card-body border">
+    <%= tag.h1(user.name, class: 'card__title') %>
+    <p class="card__counters">Number of posts: <%= tag.span(user.postsCounter) %></p>
+  </div>
+  <%= link_to '', user_path(user.id), id: "link_user-#{user.id}", class: 'card__hidden-link' %>
 </div>

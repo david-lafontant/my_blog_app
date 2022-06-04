@@ -1,7 +1,5 @@
-
-
-<%= content_tag(:div, content_tag(:a, 'Edit Profile', href: edit_user_registration_path), class: 'btn btn-primary') %>
+<%= content_tag(:div, content_tag(:a, 'Edit Profile', href: edit_user_registration_path), class: 'card__box-subnav') %>
 <%= render 'user_card', user: @user %>
-<%= content_tag(:div, tag.p(@user.bio), class: 'card') %>
+<%= content_tag(:div, tag.p(@user.bio), class: 'card__box') %>
 <%= render partial: 'posts/post_card', collection: @user.most_recent_posts, as: :post, locals: { detailed: false } %>
-<%= link_to 'See all posts', user_posts_path(@user.id), class: 'btn btn-primary' %>
+<%= link_to 'See all posts', user_posts_path(@user.id), class: 'btn btn-center' %>
