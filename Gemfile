@@ -73,7 +73,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'bcrypt', '~> 3.1.7'
 gem 'cancancan', '~> 1.9'
 gem 'devise'
 gem 'ffi'
+gem 'jwt'
 gem 'sassc-rails'
