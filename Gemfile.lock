@@ -208,14 +208,14 @@ GEM
     rspec-mocks (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
-    rspec-rails (6.0.0.rc1)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      railties (>= 6.1)
-      rspec-core (~> 3.11)
-      rspec-expectations (~> 3.11)
-      rspec-mocks (~> 3.11)
-      rspec-support (~> 3.11)
+    rspec-rails (5.1.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
     rspec-support (3.11.0)
     rubocop (1.29.1)
       parallel (~> 1.10)
@@ -230,8 +230,6 @@ GEM
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc (2.4.0-x64-mingw32)
@@ -303,19 +301,13 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.3)
   rails-controller-testing
-  rspec-core
-  rspec-expectations
-  rspec-mocks
-  rspec-rails (~> 6.0.0.rc1)
-  rspec-support
+  rspec-rails (~> 5.1, >= 5.1.2)
   rubocop (>= 1.0, < 2.0)
-  sass-rails
   sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
   turbo-rails
-  tzinfo
   tzinfo-data
   web-console
   webdrivers

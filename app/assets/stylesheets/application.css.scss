@@ -1,0 +1,365 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'style_variables.css.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: $gray-light;
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    width: 100%;
+  }
+
+  @include font;
+}
+
+a {
+  padding: 0.5rem;
+  color: $blue;
+  text-decoration: none;
+  transition: color 250ms ease-in-out;
+}
+
+a:hover {
+  color: $accent;
+}
+
+a.btn {
+  background-color: transparent;
+  border: 1px solid $accent;
+  color: $accent;
+  transition: color, background-color 250ms ease-in-out;
+}
+
+a.link {
+  padding: 0;
+}
+
+a.btn-center {
+  align-self: center;
+}
+
+a.btn:hover {
+  background-color: $accent;
+  color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @include mq {
+    width: 70%;
+  }
+
+  @include mq($mw: 60rem) {
+    width: 60%;
+  }
+}
+
+header {
+  background-color: $gray-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 3px $gray-dark;
+
+  .container {
+    padding: 1rem 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .brand {
+    padding: 0;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    color: $accent;
+  }
+
+  nav {
+    float: right;
+    display: flex;
+  }
+}
+
+section {
+  margin-top: 5rem;
+
+  .container {
+    gap: 1rem;
+  }
+}
+
+.card__box {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  border: 1px solid $gray-dark;
+  position: relative;
+
+  .card__hidden-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .card__title {
+    margin-bottom: 1rem;
+  }
+}
+
+.card__counters {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.785rem;
+
+  > * {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+}
+
+.card__box-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .card__image {
+    width: auto;
+    height: auto;
+    max-width: 7rem;
+    max-height: 7rem;
+    overflow: hidden;
+
+    img {
+      max-width: 7.5rem;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  .card__info {
+    width: calc(100% - 7rem);
+    height: 5rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .card__counters {
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+
+    @include mq($mw: 30rem) {
+      flex-direction: row;
+
+      .card__counters {
+        justify-content: flex-end;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  @include mq($mw: 30rem) {
+    width: 90%;
+  }
+
+  @include mq {
+    width: 80%;
+  }
+}
+
+.card__box-comment {
+  margin-bottom: 0.5rem;
+  display: flex;
+
+  .comment__desc {
+    width: 100%;
+    margin-right: 1rem;
+  }
+
+  .card__title {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    float: left;
+    line-height: 1;
+  }
+}
+
+.form__container {
+  background-color: $white;
+  padding: 1rem;
+  text-align: center;
+
+  .form__title {
+    margin-bottom: 1rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+
+  .field {
+    width: 100%;
+
+    &:only-child {
+      width: 100%;
+    }
+
+    @include mq {
+      width: 60%;
+    }
+  }
+
+  .field-horizontal {
+    display: flex;
+  }
+}
+
+input,
+textarea,
+input:focus,
+textarea:focus {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid $gray-dark;
+  outline: 0 none;
+}
+
+input[type=checkbox] {
+  width: auto;
+}
+
+input[type=submit] {
+  width: auto;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid $accent;
+  outline: none;
+  color: $accent;
+  cursor: pointer;
+  align-self: center;
+  transition: color, background-color 250ms ease-in-out;
+}
+
+input[type=submit]:hover {
+  background-color: $accent;
+  color: $white;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: $blue;
+  cursor: pointer;
+}
+
+button:hover {
+  color: $accent;
+}
+
+.owner__admin {
+  float: right;
+}
+
+.alert {
+  margin: 1rem 0;
+}
+
+.alert-success {
+  color: $accent;
+}
+
+.alert-error {
+  color: $red;
+}
+
+.box-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  a {
+    padding: 0;
+  }
+}
+
+.card__box-subnav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.785rem;
+  color: $gray-dark;
+}
+
+@include mq {
+  .card__counters-detailed {
+    width: auto;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+  }
+}
