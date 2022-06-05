@@ -2,14 +2,6 @@ class CommentsController < ApplicationController
   def new
     @current_user = current_user
     @post = Post.find(params[:post_id])
-    render :new, locals: { user: @current_user, post: @post }
-  end
-
-  def destroy
-    @comment = Comment.find(params[:post][:comment_id])
-    comment_user_id = @comment.user.id
-    @comment.destroy
-    redirect_to user_url(comment_user_id)
   end
 
   def create
@@ -24,6 +16,13 @@ class CommentsController < ApplicationController
       flash.now[:error] = @comment.errors.full_messages.to_sentence
       render :new, locals: { user: @current_user, post: @post }, status: 422
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:post][:comment_id])
+    comment_user_id = @comment.user.id
+    @comment.destroy
+    redirect_to user_url(comment_user_id)
   end
 
   private
