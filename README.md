@@ -4,12 +4,8 @@
 The Blog app will be a classic example of a blog website. It will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 
-## Project -1 Features
+## Project - integration specs for views
 
-- Setup the Blog App project.
-- Create the routes for `users` and `posts`.
-- Create the controller actions `index` and `show` for `users` and `posts`.
-- Create the views `user_list, user_details, post_list, and post_details`.
 
 
 ## Built With
@@ -45,8 +41,7 @@ To get a local copy up and running follow these simple example steps.
 Run the tests
 run `bundle install` to install all the gems
 To run all the tests, please type in the terminal: `rspec`
-To run tests for the post controller: `rspec spec\posts_controller_spec.rb`
-To run the tests for user controller: `rspec spec\users_controller_spec.rb`
+To run tests for a specific file : `rspec file_path`
 ## Authors
 
 👤 **David Lafontant**
