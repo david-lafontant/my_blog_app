@@ -1,8 +1,8 @@
-<div class="d-flex p-3 bg-secondary text-white border">
-  <div class="card-body border">
-    <%= content_tag(:div, tag.img(src: user.photo, alt: "#{user.name}'s photo", width: '150px'), class: 'card') %>
+<div class="card__box card__box-user">
+  <div class="card__image">
+    <%= image_tag user.photo, alt: "#{user.name}'s photo" %>
   </div>
-  <div class="card-body border">
+  <div class="card__info">
     <%= tag.h1(user.name, class: 'card__title') %>
     <p class="card__counters">Number of posts: <%= tag.span(user.postsCounter) %></p>
   </div>
